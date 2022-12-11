@@ -1,0 +1,64 @@
+@use "../variables.scss" as var;
+
+$card-offset: -50px;
+
+.card {
+	background: green;
+	width: 450px;
+	aspect-ratio: 16 / 9;
+	border-radius: 0.5em;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	color: white;
+	box-shadow: 0 0 25px rgba(39, 39, 39, 0.363);
+}
+
+.frontcard {
+	left: $card-offset;
+	background-image: url("../assets/images/bg-card-front.png");
+	padding: 1em;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 60% auto auto;
+	.cardnum {
+		grid-column: 1/-1;
+		font-size: 1.5rem;
+		letter-spacing: 5px;
+	}
+	.name,
+	.expiredate {
+		color: var.$light-gray-violet;
+		font-size: 12px;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+	}
+	.name {
+		grid-column: span 2;
+	}
+	.expiredate {
+		justify-self: center;
+		text-align: right;
+	}
+}
+
+.backcard {
+	right: $card-offset;
+	background-image: url("../assets/images/bg-card-back.png");
+	.backnum {
+		position: absolute;
+		top: 115px;
+		right: 50px;
+		font-size: 14px;
+		letter-spacing: 2px;
+	}
+}
+
+.cardsection {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	align-items: center;
+}

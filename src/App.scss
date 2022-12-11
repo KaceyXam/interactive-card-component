@@ -1,41 +1,60 @@
-#root {
+@use "./variables.scss" as var;
+
+.app {
+	min-height: 100vh;
 	max-width: 1280px;
-	margin: 0 auto;
-	padding: 2rem;
-	text-align: center;
+	margin-inline: auto;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	place-content: center;
+	place-items: center;
 }
 
-.logo {
-	height: 6em;
-	padding: 1.5em;
-	will-change: filter;
-}
-.logo:hover {
-	filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-	filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-	from {
-		transform: rotate(0deg);
+.inputform {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	max-width: 450px;
+	gap: 1.5em;
+	input {
+		padding: 0.5em;
+		border: 2px solid var.$light-gray-violet;
+		border-radius: 0.5em;
+		width: 100%;
+		&::placeholder {
+			color: var.$dark-gray-violet;
+		}
 	}
-	to {
-		transform: rotate(360deg);
+	label {
+		font-size: 14px;
+		text-transform: uppercase;
+		color: var.$dark-violet;
+		font-weight: 900;
+		letter-spacing: 1px;
 	}
-}
-
-@media (prefers-reduced-motion: no-preference) {
-	a:nth-of-type(2) .logo {
-		animation: logo-spin infinite 20s linear;
+	.name,
+	.cardnum {
+		grid-column: 1 / -1;
 	}
-}
+	.expdate {
+		display: flex;
+		gap: 0.5em;
+	}
+	.submit {
+		width: 100%;
+		grid-column: 1 / -1;
+		padding: 1em;
+		border-radius: 0.5em;
+		border: none;
+		background-color: var.$dark-violet;
+		color: white;
+	}
 
-.card {
-	padding: 2em;
-}
+	.error {
+		color: var.$error-red;
+		font-size: 14px;
+	}
 
-.read-the-docs {
-	color: #888;
+	.wrapper:has(.error) input {
+		border-color: var.$error-red;
+	}
 }
