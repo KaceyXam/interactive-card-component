@@ -104,7 +104,7 @@ function Form({ cardInfo }: { cardInfo: Function }) {
 						{nameErr ? <div className="error">Can't be blank</div> : null}
 					</div>
 					<div className="cardnum wrapper">
-						<label htmlFor="cardnum">Cardholder Name</label>
+						<label htmlFor="cardnum">Card Number</label>
 						<input
 							type="text"
 							name="cardnum"
