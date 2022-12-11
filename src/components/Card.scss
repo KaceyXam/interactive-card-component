@@ -16,15 +16,16 @@ $card-offset: -50px;
 }
 
 .frontcard {
+	z-index: 999;
 	left: $card-offset;
 	background-image: url("../assets/images/bg-card-front.png");
-	padding: 1em;
+	padding: 1.5em;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: 60% auto auto;
 	.cardnum {
 		grid-column: 1/-1;
-		font-size: 1.5rem;
+		font-size: 1.5em;
 		letter-spacing: 5px;
 	}
 	.name,
@@ -61,4 +62,30 @@ $card-offset: -50px;
 	flex-direction: column;
 	gap: 2rem;
 	align-items: center;
+}
+
+@media (max-width: 900px) {
+	$card-offset: -25px;
+
+	.cardsection {
+		display: grid;
+		.frontcard,
+		.backcard {
+			width: 350px;
+			font-size: 0.7rem;
+			grid-column: 1;
+			grid-row: 1;
+		}
+		.frontcard {
+			left: $card-offset;
+		}
+		.backcard {
+			bottom: 110px;
+			right: $card-offset;
+			.backnum {
+				top: 90px;
+				right: 40px;
+			}
+		}
+	}
 }

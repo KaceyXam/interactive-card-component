@@ -10,6 +10,16 @@
 	place-items: center;
 }
 
+.submit,
+.continue {
+	width: 100%;
+	padding: 1em;
+	border-radius: 0.5em;
+	border: none;
+	background-color: var.$dark-violet;
+	color: white;
+}
+
 .inputform {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -56,5 +66,42 @@
 
 	.wrapper:has(.error) input {
 		border-color: var.$error-red;
+	}
+}
+
+.complete {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	gap: 1em;
+	width: 450px;
+	h2 {
+		text-transform: uppercase;
+		font-size: 1.8rem;
+		letter-spacing: 3px;
+		font-weight: 400;
+	}
+	p {
+		color: var.$dark-gray-violet;
+	}
+	img {
+		margin-bottom: 2rem;
+	}
+	.continue {
+		margin-top: 2rem;
+	}
+}
+
+@media (max-width: 900px) {
+	.app {
+		grid-template-columns: 1fr;
+		gap: 4rem;
+	}
+
+	.complete,
+	.inputform {
+		width: 350px;
+		max-width: auto;
 	}
 }
